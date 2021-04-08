@@ -1,21 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:loja_vitual_example/screens/login/login_screen.dart';
+import 'package:get_it/get_it.dart';
+import 'package:loja_vitual_example/stores/user_manager_store.dart';
 
 class PerfilScreen extends StatelessWidget {
+
+  final UserManagerStore userManagerStore = GetIt.I<UserManagerStore>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Sua Conta'),
         centerTitle: true,
         actions: [
           GestureDetector(
             onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (_) => LoginScreen()));
+              if (userManagerStore.isLoggedIn) {
+                userManagerStore.logout();
+                Navigator.of(context)
+                    .pushNamed('/base');
+              } else {
+                Navigator.of(context)
+                    .pushNamed('/login');
+              }
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 25, right: 20),
-              child: Text('Entrar'),
+              child: Text(userManagerStore.isLoggedIn ? 'Sair' : 'Entrar', style: TextStyle(fontSize: 16)),
             ),
           )
         ],
@@ -27,7 +38,10 @@ class PerfilScreen extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(15),
-              child: Text(
+              child: userManagerStore.isLoggedIn ? Text(
+                'Olá, ${userManagerStore.user.surname}',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                ) : Text(
                 'Olá Visitante!',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
               ),
