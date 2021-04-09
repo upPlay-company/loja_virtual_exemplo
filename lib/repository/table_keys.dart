@@ -6,6 +6,12 @@ const keyUserPhone = 'phone';
 const keyUserType = 'type';
 const keyUserCreatedAt = 'createdAt';
 
-const keyCategoryTable = 'Categories';
+const keyCategoryTable = 'Categorias';
 const keyCategoryId = 'objectId';
-const keyCategoryDescription = 'description';
+const keyCategoryTitle = 'Title';
+const keyCategoryPosition = 'Position';
+
+const keySubCategoryTable = 'SubCategorias';
+const keySubCategoryId = 'objectId';
+const keySubCategoryTitle = 'Title';
+const keySubCategoryPosition = 'Position';

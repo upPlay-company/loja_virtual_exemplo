@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bmnav/bmnav.dart' as bmnav;
 import 'package:line_icons/line_icons.dart';
 import 'package:loja_vitual_example/screens/cart/cart_screen.dart';
-import 'package:loja_vitual_example/screens/categorias/categorias.dart';
+import 'package:loja_vitual_example/screens/categorias/categorias_screen.dart';
 import 'package:loja_vitual_example/screens/home/home_screen.dart';
 import 'package:loja_vitual_example/screens/perfil/perfil_screen.dart';
 

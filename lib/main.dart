@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:loja_vitual_example/screens/base/base_screen.dart';
 import 'package:loja_vitual_example/screens/inicial/inicial_screen.dart';
 import 'package:loja_vitual_example/screens/login/login_screen.dart';
+import 'package:loja_vitual_example/stores/category_store.dart';
 import 'package:loja_vitual_example/stores/user_manager_store.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
@@ -15,6 +16,7 @@ void main() async {
 }
 
 void setupLocators() {
+  GetIt.I.registerSingleton(CategoryStore());
   GetIt.I.registerSingleton(UserManagerStore());
 }
 
